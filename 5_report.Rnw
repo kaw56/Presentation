@@ -1,4 +1,6 @@
 \documentclass{beamer}
+\usetheme{Boadilla}
+\usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
 
 
@@ -8,7 +10,7 @@
 
 \begin{document}
 <<set-options, echo=FALSE, cache=FALSE>>=
-opts_chunk$set(echo = FALSE, fig.path = 'figure/', dev = 'pdf', fig.align='center', fig.show='hold')
+opts_chunk$set(echo = FALSE, fig.path = 'figure/', dev = 'pdf', fig.align='center', fig.show='hold', fig.height=5)
 read_chunk('1_load.R')
 @
 
@@ -40,6 +42,11 @@ read_chunk('3_functions.R')
 read_chunk('4_do.R')
 @
 
+<<filter_forward>>=
+@
+
+<<filter_reverse>>=
+@
 \begin{frame}
     \titlepage
 \end{frame}
@@ -54,49 +61,52 @@ read_chunk('4_do.R')
 
 % maybe change this bit into a single slide with a diagram?
 
-    \subsection{Microarrays}
+    \subsection{Preparation}
         \begin{frame}
-            % Single channel Agilent microarray (or at least the data was collected using an agilent thing anyway)
-            % to compare between arrays in the experiment normalised to 75th percentile and RMA
+            \pause
+            \begin{center}
+                \includegraphics<1>[height = 8cm]{Figure/array_workflow1.pdf}
+                \includegraphics<2>[height = 8cm]{Figure/array_workflow2.pdf}
+                \includegraphics<3>[height = 8cm]{Figure/array_workflow3.pdf}
+                \includegraphics<4>[height = 8cm]{Figure/array_workflow4.pdf}
+            \end{center}
         \end{frame}
-    
-    \subsection{Data}
+
+    \subsection{Finding the mitochondrial transcipts}
         \begin{frame}
-            % I was given data based on the RNAseq experiments by Nick and Brian Lam
-            % this was being used to look at expression differences between 
-            % contigs that Brian made 
+            \pause
+            \begin{center}
+                \includegraphics<1>[height = 8cm]{Figure/my_workflow1.pdf}
+                \includegraphics<2>[height = 8cm]{Figure/my_workflow2.pdf}
+                \includegraphics<3>[height = 8cm]{Figure/my_workflow3.pdf}
+                \includegraphics<4>[height = 8cm]{Figure/my_workflow4.pdf}
+            \end{center}
         \end{frame}
-        
-    \subsection{What I did}
-        \begin{frame}
-            % I also had the sequences of the contigs so I blasted the 
-            % contigs against the mito
-            % genome and used the contigs that had a perfect match to Eurydice 
-            % genome as markers
-            % of mitochondrial gene expression
-        \end{frame}
-        
+
 \section{Graphs}
+
+
     \begin{frame}
-        % whole timcourse plot
+       <<whole_time_course_forward>>=
+       @
     \end{frame}
-    
+
     \subsection{Circadian}
         \begin{frame}
             % whole circadian
         \end{frame}
         \begin{frame}
             % significant circadian
-        \end{frame}    
-    
+        \end{frame}
+
     \subsection{tidal}
         \begin{frame}
             % whole tidal
         \end{frame}
         \begin{frame}
             % significant tidal
-        \end{frame}        
-    
+        \end{frame}
+
     \begin{frame}
         % session info
     \end{frame}
@@ -105,7 +115,7 @@ read_chunk('4_do.R')
     \begin{frame}
         % now I have the probe sequences and raw data so I will do shit with them
     \end{frame}
-    
+
 \section{Immuno}
     \begin{frame}
         % pretty picture time
