@@ -1,34 +1,17 @@
-\documentclass{article}
-\usepackage{fancyhdr}
-\usepackage[a4paper]{geometry}
-\pagestyle{fancy}
-\lhead{\today}
-\chead{}
-\rhead{Perfect hit analysis}
-\lfoot{}
-\cfoot{\thepage}
-\rfoot{}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\documentclass{beamer}
+\usetheme{Boadilla}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\title{Microarray Analysis}
+\author{}
+\date{}
 
 \begin{document}
 <<set-options, echo=FALSE, cache=FALSE>>=
 opts_chunk$set(echo = FALSE, fig.path = 'figure/', dev = 'pdf', fig.align='center', fig.show='hold')
 read_chunk('1_load.R')
 @
-\setcounter{secnumdepth}{0}
-\title{Microarray Analysis}
-\author{}
-\date{\today}
-\maketitle
-
-\section{}
-This report was generated using data generated using Perl script blast\_annotated\_genome.pl version 2.2.1.
-
-Contigs for this report were selected by looking for perfect matches against 
-the \textit{Eurydice pulchra} mitochondrial genome. A perfect match is defined
-as having an e value of 0.0.
-
 
 <<load>>=
 @
@@ -57,6 +40,69 @@ read_chunk('3_functions.R')
 <<ext_code4>>=
 read_chunk('4_do.R')
 @
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\section{Microarray Workflow}
+    \subsection{Samples}
+        \begin{frame}
+            % Experiment set up: 4 samples, a diagram of the thing in Nick's Lab book
+        \end{frame}
+
+% maybe change this bit into a single slide with a diagram?
+
+    \subsection{Microarrays}
+        \begin{frame}
+            % Single channel Agilent microarray (or at least the data was collected using an agilent thing anyway)
+            % to compare between arrays in the experiment normalised to 75th percentile and RMA
+        \end{frame}
+    
+    \subsection{Data}
+        \begin{frame}
+            % I was given data based on the RNAseq experiments by Nick and Brian Lam
+            % this was being used to look at expression differences between contigs that Brian made 
+        \end{frame}
+        
+    \subsection{What I did}
+        \begin{frame}
+            % I also had the sequences of the contigs so I blasted the contigs against the mito
+            % genome and used the contigs that had a perfect match to Eurydice genome as markers
+            % of mitochondrial gene expression
+        \end{frame}
+        
+\section{Graphs}
+    \begin{frame}
+        % whole timcourse plot
+    \end{frame}
+    
+    \subsection{Circadian}
+        \begin{frame}
+            % whole circadian
+        \end{frame}
+        \begin{frame}
+            % significant circadian
+        \end{frame}    
+    
+    \subsection{tidal}
+        \begin{frame}
+            % whole tidal
+        \end{frame}
+        \begin{frame}
+            % significant tidal
+        \end{frame}        
+
+\section{what I intend to do}
+    \begin{frame}
+        % now I have the probe sequences and raw data so I will do shit with them
+    \end{frame}
+    
+\section{Immuno}
+    \begin{frame}
+        % pretty picture time
+    \end{frame}
+
 
 <<filter>>=
 @
