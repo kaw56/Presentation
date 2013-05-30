@@ -6,7 +6,7 @@ library(plyr)
 # filtering functions
 
 summary_stats <- function(data.set) {
-    ddply(data.set, c("Probeset.ID", "gene", "time"), 
+    ddply(data.set, c("Probeset.ID", "gene", "time", "type"), 
           summarise, 
           mean_expression = mean(expression), 
           sd = sd(expression), 

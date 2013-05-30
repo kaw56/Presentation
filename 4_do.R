@@ -29,8 +29,7 @@ circadian_average_filtered <- circadian_average[circadian_average$Probeset.ID %i
 tidal_filter_set <- tidal_t_test[ tidal_t_test$pvalue < 0.05 ,]
 tidal_average_filtered <- tidal_average[tidal_average$Probeset.ID %in% tidal_filter_set$Probeset.ID,]
 
-# number of rrnL hits
-rrnl_num <- nrow(perfect_hits) - nrow(perf_hits_no_rrnL)
+
 
 ##########
 # tables #
@@ -77,13 +76,13 @@ print.xtable(tidal_t_table_print, include.rownames = FALSE)
 
 # line graph of each contig average over biological replicates at each timepoint
 raw_timecourse <- BaseLineGraph(arrays_average) 
-raw_timecourse + scale_color_brewer("gene", palette = "Set3") 
+raw_timecourse + scale_color_brewer("gene", palette = "Set3") + facet_grid(. ~ type)
 
 ## @knitr tidal_contig_graph
 
 # line graph for each contig: tidal
 tidal <- BaseLineGraph(tidal_average)    
-tidal + scale_color_brewer("gene", palette = "Set3") 
+tidal + scale_color_brewer("gene", palette = "Set3") + facet_grid(. ~ type)
 
 
 ## @knitr tidal_filter_graph
@@ -91,20 +90,20 @@ tidal + scale_color_brewer("gene", palette = "Set3")
 # filtered graph: tidal (plus error bars)
 tidal_filtered <- BaseLineGraph(tidal_average_filtered)                          
 tidal_filtered +
-    geom_errorbar(aes(ymin=mean_expression-se, ymax=mean_expression+se), width=.1)
+    geom_errorbar(aes(ymin=mean_expression-se, ymax=mean_expression+se), width=.1) + facet_grid(. ~ type)
 
 
-## @knitr circadian_contig_graph
+## @knitr circa_contig_graph
 
 # line graph for each contig: circadian
 circa <- BaseLineGraph(circadian_average)
-circa + scale_color_brewer("gene", palette = "Set3")  
+circa + scale_color_brewer("gene", palette = "Set3") + facet_grid(. ~ type) 
     
 ## @knitr circa_filter_graph
 
 # filtered graph: circadian
 circa_filtered <- BaseLineGraph(circadian_average_filtered)
 circa_filtered + 
-    geom_errorbar(aes(ymin=mean_expression-se, ymax=mean_expression+se), width=.1)
+    geom_errorbar(aes(ymin=mean_expression-se, ymax=mean_expression+se), width=.1) + facet_grid(. ~ type)
 
 ## @knitr

@@ -93,9 +93,9 @@ arrays_long_reverse$time <- factor(tidal_arrays_reverse.long$time,
                                    levels = c("HW1", "LW2", "HW2", "LW1"))
 
 # add a type column
-arrays_long_forward$type <- rep("forward", length(arrays_long_forward$Probeset.ID))
-arrays_long_reverse$type <- rep("reverse", length(arrays_long_reverse$Probeset.ID))
+arrays_long_forward$type <- rep("Forward", length(arrays_long_forward$Probeset.ID))
+arrays_long_reverse$type <- rep("Reverse", length(arrays_long_reverse$Probeset.ID))
 
 arrays_long <- rbind(arrays_long_forward, arrays_long_reverse)
-arrays_long$type <- factor(arrays_long$type, levels = c("forward", "reverse"))
+arrays_long$type <- factor(arrays_long$type, levels = c("Forward", "Reverse"))
 
