@@ -42,11 +42,9 @@ read_chunk('3_functions.R')
 read_chunk('4_do.R')
 @
 
-<<filter_forward>>=
+<<filter>>=
 @
 
-<<filter_reverse>>=
-@
 \begin{frame}
     \titlepage
 \end{frame}
@@ -59,7 +57,6 @@ read_chunk('4_do.R')
             \end{center}
         \end{frame}
 
-% maybe change this bit into a single slide with a diagram?
 
     \subsection{Preparation}
         \begin{frame}
@@ -87,38 +84,49 @@ read_chunk('4_do.R')
 
 
     \begin{frame}
-       <<whole_time_course_forward>>=
+       <<whole_time_course>>=
        @
     \end{frame}
 
     \subsection{Circadian}
         \begin{frame}
-            
+            <<circa_contig_graph>>=
+            @
         \end{frame}
         \begin{frame}
-            % significant circadian
+            <<circa_filter_graph>>=
+            @
         \end{frame}
 
     \subsection{tidal}
         \begin{frame}
-            % whole tidal
+           <<tidal_contig_graph>>=
+            @
         \end{frame}
         \begin{frame}
-            % significant tidal
+            <<tidal_filter_graph>>=
+            @
         \end{frame}
 
+
+\section{What I intend to do}
     \begin{frame}
-        % session info
+        \begin{itemize}
+            \item Brian has given me the sequences for the microarray probes
+            \item By blasting the probes against the mitochondrial genome I hope to get a more representative measure of mitochondrial gene expression
+            \item RNA-seq
+        \end{itemize}
     \end{frame}
 
-\section{what I intend to do}
-    \begin{frame}
-        % now I have the probe sequences and raw data so I will do shit with them
-    \end{frame}
-
-\section{Immuno}
+\section{Immunohistochemistry}
     \begin{frame}
         % pretty picture time
     \end{frame}
-
+\section{Session information}
+    \begin{frame}
+        This presentation was created using knitr
+        <<session_info>>=
+print(sessionInfo(), locale = FALSE)
+@
+    \end{frame}
 \end{document}
