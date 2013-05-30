@@ -18,10 +18,8 @@ perf_hits_reverse_no_rrnL <- subset(perfect_hits_reverse, gene != "rrnL")
 mito_arrays_forward <- array_data[array_data$Probeset.ID %in% perfect_hits_forward$contig_name,]
 mito_arrays_reverse <- array_data[array_data$Probeset.ID %in% perfect_hits_reverse$contig_name,]
 # add a gene name column
-mito_arrays_forward$gene_name <- perfect_hits[mito_arrays$Probeset.ID %in% perfect_hits_forward$contig_name, "gene"]
-mito_arrays_reverse$gene_name <- perfect_hits[mito_arrays$Probeset.ID %in% perfect_hits_reverse$contig_name, "gene"]
-
-without_rrnl <- subset(mito_arrays, gene_name != "rrnL")
+mito_arrays_forward$gene_name <- perfect_hits_forward[mito_arrays_forward$Probeset.ID %in% perfect_hits_forward$contig_name, "gene"]
+mito_arrays_reverse$gene_name <- perfect_hits_reverse[mito_arrays_reverse$Probeset.ID %in% perfect_hits_reverse$contig_name, "gene"]
 
 ##################
 # data reshaping #
