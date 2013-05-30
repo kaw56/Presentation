@@ -1,7 +1,6 @@
 \documentclass{beamer}
-\usetheme{Boadilla}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}{}
+
 
 \title{Microarray Analysis}
 \author{}
@@ -48,7 +47,9 @@ read_chunk('4_do.R')
 \section{Microarray Workflow}
     \subsection{Samples}
         \begin{frame}
-            \includegraphics{Figure/samples_slide.pdf}
+            \begin{center}
+                \includegraphics[height = 8cm]{Figure/samples_slide.pdf}
+            \end{center}
         \end{frame}
 
 % maybe change this bit into a single slide with a diagram?
