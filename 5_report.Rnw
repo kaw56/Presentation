@@ -1,0 +1,124 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+
+
+\title{Microarray Analysis}
+\author{}
+\date{}
+
+\begin{document}
+<<set-options, echo=FALSE, cache=FALSE>>=
+opts_chunk$set(echo = FALSE, fig.path = 'figure/', dev = 'pdf', fig.align='center', fig.show='hold', fig.height=5)
+read_chunk('1_load.R')
+@
+
+<<load>>=
+@
+
+<<ext_code1>>=
+read_chunk('1.5_functions.R')
+@
+
+<<func1>>=
+@
+
+<<ext_code2>>=
+read_chunk('2_clean.R')
+@
+
+<<clean>>=
+@
+
+<<ext_code3>>=
+read_chunk('3_functions.R')
+@
+
+<<func2>>=
+@
+
+<<ext_code4>>=
+read_chunk('4_do.R')
+@
+
+<<filter_forward>>=
+@
+
+<<filter_reverse>>=
+@
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\section{Microarray Workflow}
+    \subsection{Samples}
+        \begin{frame}
+            \begin{center}
+                \includegraphics[height = 8cm]{Figure/samples_slide.pdf}
+            \end{center}
+        \end{frame}
+
+% maybe change this bit into a single slide with a diagram?
+
+    \subsection{Preparation}
+        \begin{frame}
+            \pause
+            \begin{center}
+                \includegraphics<1>[height = 8cm]{Figure/array_workflow1.pdf}
+                \includegraphics<2>[height = 8cm]{Figure/array_workflow2.pdf}
+                \includegraphics<3>[height = 8cm]{Figure/array_workflow3.pdf}
+                \includegraphics<4>[height = 8cm]{Figure/array_workflow4.pdf}
+            \end{center}
+        \end{frame}
+
+    \subsection{Finding the mitochondrial transcipts}
+        \begin{frame}
+            \pause
+            \begin{center}
+                \includegraphics<1>[height = 8cm]{Figure/my_workflow1.pdf}
+                \includegraphics<2>[height = 8cm]{Figure/my_workflow2.pdf}
+                \includegraphics<3>[height = 8cm]{Figure/my_workflow3.pdf}
+                \includegraphics<4>[height = 8cm]{Figure/my_workflow4.pdf}
+            \end{center}
+        \end{frame}
+
+\section{Graphs}
+
+
+    \begin{frame}
+       <<whole_time_course_forward>>=
+       @
+    \end{frame}
+
+    \subsection{Circadian}
+        \begin{frame}
+            
+        \end{frame}
+        \begin{frame}
+            % significant circadian
+        \end{frame}
+
+    \subsection{tidal}
+        \begin{frame}
+            % whole tidal
+        \end{frame}
+        \begin{frame}
+            % significant tidal
+        \end{frame}
+
+    \begin{frame}
+        % session info
+    \end{frame}
+
+\section{what I intend to do}
+    \begin{frame}
+        % now I have the probe sequences and raw data so I will do shit with them
+    \end{frame}
+
+\section{Immuno}
+    \begin{frame}
+        % pretty picture time
+    \end{frame}
+
+\end{document}
