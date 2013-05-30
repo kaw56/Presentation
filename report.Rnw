@@ -48,7 +48,7 @@ read_chunk('4_do.R')
 \section{Microarray Workflow}
     \subsection{Samples}
         \begin{frame}
-            % Experiment set up: 4 samples, a diagram of the thing in Nick's Lab book
+            \includegraphics{Figure/samples_slide.pdf}
         \end{frame}
 
 % maybe change this bit into a single slide with a diagram?
@@ -62,13 +62,16 @@ read_chunk('4_do.R')
     \subsection{Data}
         \begin{frame}
             % I was given data based on the RNAseq experiments by Nick and Brian Lam
-            % this was being used to look at expression differences between contigs that Brian made 
+            % this was being used to look at expression differences between 
+            % contigs that Brian made 
         \end{frame}
         
     \subsection{What I did}
         \begin{frame}
-            % I also had the sequences of the contigs so I blasted the contigs against the mito
-            % genome and used the contigs that had a perfect match to Eurydice genome as markers
+            % I also had the sequences of the contigs so I blasted the 
+            % contigs against the mito
+            % genome and used the contigs that had a perfect match to Eurydice 
+            % genome as markers
             % of mitochondrial gene expression
         \end{frame}
         
@@ -92,6 +95,10 @@ read_chunk('4_do.R')
         \begin{frame}
             % significant tidal
         \end{frame}        
+    
+    \begin{frame}
+        % session info
+    \end{frame}
 
 \section{what I intend to do}
     \begin{frame}
@@ -102,60 +109,5 @@ read_chunk('4_do.R')
     \begin{frame}
         % pretty picture time
     \end{frame}
-
-
-<<filter>>=
-@
-
-In perfect match group \Sexpr{rrnl_num} of the contigs match rrnL with an e value
-of 0. The rest of the matches are shown below.
-
-<<contig_table, results='asis'>>=
-@
-
-\clearpage
-\section{Whole Timecourse}
-\begin{figure}[h!]
-    \caption{Mitochondrial gene expression: all time points}
-<<whole_time_course>>=
-@
-\end{figure}
-Can't actually show tidal time and circadian time on the same graph with these data
-
-\clearpage
-\section{Circadian}
-\begin{figure}[h!]
-    \caption{Mitochondrial gene expression: circadian time}
-<<circadian_contig_graph>>=
-@
-\end{figure}
-<<circa_t_test, results='asis'>>=
-@
-\begin{figure}[h!]
-    \caption{Mitochondrial gene expression: circadian, significant change (p \textless 0.05)}
-<<circa_filter_graph, fig.height=6>>=
-@
-\end{figure}
-
-\clearpage
-\section{Tidal}
-\begin{figure}[h!]
-    \caption{Mitochondrial gene expression: tidal time}
-<<tidal_contig_graph>>=
-@
-\end{figure}
-<<tidal_t_test,results='asis'>>=
-@
-\begin{figure}[h!]
-    \caption{Mitochondrial gene expression: tidal, significant change (p \textless 0.05)}
-<<tidal_filter_graph, fig.height=6>>=
-@
-\end{figure}
-None of the changes in the perfect hits group are significant according to a Student t-test.
-\clearpage
-\section{Session information} 
-<<session_info>>=
-print(sessionInfo(), locale = FALSE)
-@
 
 \end{document}
