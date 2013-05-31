@@ -1,4 +1,5 @@
 \documentclass{beamer}
+\usepackage{graphics}
 \usetheme{Boadilla}
 \usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
@@ -55,6 +56,7 @@ read_chunk('4_do.R')
             \begin{center}
                 \includegraphics[height = 8cm]{Figure/samples_slide.pdf}
             \end{center}
+        \note{Explain the diagram, it basically says it all - trizol extraction as far as I can tell}
         \end{frame}
 
 
@@ -67,6 +69,7 @@ read_chunk('4_do.R')
                 \includegraphics<3>[height = 8cm]{Figure/array_workflow3.pdf}
                 \includegraphics<4>[height = 8cm]{Figure/array_workflow4.pdf}
             \end{center}
+        \note{made into cDNAs\\Applied to a single colour array - measuring signal intensity - kind of an absolute measure. I think these are actually agilent arrays given the raw data I now have\\ each sample was put over its own array (3 chips with 4 arrays each)\\ normalised to 75th percentile then RMA mean polishing}
         \end{frame}
 
     \subsection{Finding the mitochondrial transcipts}
@@ -78,32 +81,41 @@ read_chunk('4_do.R')
                 \includegraphics<3>[height = 8cm]{Figure/my_workflow3.pdf}
                 \includegraphics<4>[height = 8cm]{Figure/my_workflow4.pdf}
             \end{center}
+        \note{Blasted against mito genome etc}
         \end{frame}
 
 \section{Graphs}
 
 
     \begin{frame}
+    \frametitle{Whole timecourse}
        <<whole_time_course>>=
        @
     \end{frame}
 
     \subsection{Circadian}
         \begin{frame}
+        \frametitle{All contigs in circadian time}
             <<circa_contig_graph>>=
             @
+        \note{explain collapsing}
         \end{frame}
+
         \begin{frame}
+        \frametitle{Contigs with significant change}
             <<circa_filter_graph>>=
             @
+        \note{explain that I used a t test}
         \end{frame}
 
     \subsection{tidal}
         \begin{frame}
+        \frametitle{All contigs in tidal time}
            <<tidal_contig_graph>>=
             @
         \end{frame}
         \begin{frame}
+        \frametitle{Contigs with significant change}
             <<tidal_filter_graph>>=
             @
         \end{frame}
@@ -111,6 +123,7 @@ read_chunk('4_do.R')
 
 \section{What I intend to do}
     \begin{frame}
+    \frametitle{What I'll do next}
         \begin{itemize}
             \item Brian has given me the sequences for the microarray probes
             \item By blasting the probes against the mitochondrial genome I hope to get a more representative measure of mitochondrial gene expression
@@ -120,13 +133,29 @@ read_chunk('4_do.R')
 
 \section{Immunohistochemistry}
     \begin{frame}
-        % pretty picture time
+    \begin{center}
+        \includegraphics[height = 8cm]{Figure/per1.pdf}
+    \end{center}
     \end{frame}
-\section{Session information}
+
+
     \begin{frame}
-        This presentation was created using knitr
-        <<session_info>>=
-print(sessionInfo(), locale = FALSE)
-@
+    \begin{center}
+        \includegraphics[height = 8cm]{Figure/per3.pdf}
+    \end{center}
     \end{frame}
+
+    \begin{frame}
+    \begin{center}
+        \includegraphics[height = 8cm]{Figure/per4.pdf}
+    \end{center}
+    \end{frame}
+
+
+% \section{Session information}
+%     \begin{frame}
+%                 <<session_info>>=
+%                 print(sessionInfo(), locale = FALSE)
+%                 @
+%    \end{frame}
 \end{document}
